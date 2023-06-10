@@ -1,0 +1,222 @@
+.solutions {
+  margin-top: -120px;
+  padding-bottom: 200px;
+  color: #fff;
+  background: linear-gradient(92.49deg, #1a233b 0%, #01278e 185.36%);
+  
+  @include tablet {
+    padding-bottom: 184px;
+  }
+
+  @include tablet-xl {
+    padding-bottom: 176px;
+  }
+}
+
+
+.solutions__rows {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  color: $black;
+}
+
+.solution__rows-item {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  height: 188px;
+  padding: 40px 67px 0 40px;
+  border-radius: 40px;
+  margin-top: -60px;
+  transition: all 0.15s ease-in;
+
+  box-shadow: 0px 100px 80px rgba(0, 0, 0, 0.03),
+    0px 64.8148px 46.8519px rgba(0, 0, 0, 0.0227778),
+    0px 38.5185px 25.4815px rgba(0, 0, 0, 0.0182222),
+    0px 20px 13px rgba(0, 0, 0, 0.015),
+    0px 8.14815px 6.51852px rgba(0, 0, 0, 0.0117778),
+    0px 1.85185px 3.14815px rgba(0, 0, 0, 0.00722222);
+
+  &:first-child {
+    background: #d8ddff;
+    margin-top: 0;
+    padding-right: 117px;
+    width: 100%;
+
+    @include laptop {
+      padding-right: 40px;
+    }
+
+    @include tablet {
+      padding-right: 14%;
+    }
+
+    @include tablet-xl {
+      padding-right: unset;
+      padding: 24px 24px 16px 40px;
+    }
+  
+    @include tablet-lg {
+      padding-right: unset;
+      padding: 16px; 
+    }
+  }
+
+  &:nth-child(2) {
+    background: #e9ecff;
+    width: 92.8%;
+
+    @include tablet {
+      padding-right: 10%;
+    }
+
+    @include tablet-xl {
+      padding-right: unset;
+      padding: 24px 24px 16px 40px;
+    }
+  
+    @include tablet-lg {
+      padding-right: unset;
+      padding: 16px; 
+    }
+  }
+
+  &:nth-child(3) {
+    background: #fff;
+    width: 85.7%;
+
+    .solution__rows-item-text {
+      max-width: 550px;
+
+      @include tablet {
+        max-width: 440px;
+      }
+
+      @include tablet-xl {
+        max-width: 50%;
+        padding-left: 16px;
+      }
+    
+      @include tablet-lg {
+        max-width: 53%;
+      }
+
+      @include mobile {
+        max-width: 100%;
+        padding-left: unset;
+      }
+    }
+
+    @include tablet {
+      padding-right: 7%;
+    }
+
+    @include tablet-xl {
+      padding-right: unset;
+      padding: 24px 24px 16px 40px;
+    }
+  
+    @include tablet-lg {
+      padding-right: unset;
+      padding: 16px; 
+    }
+  }
+
+  @include laptop {
+    height: 122px;
+    margin-top: -24px;
+    padding-right: 40px;
+  }
+
+  @include tablet-xl {
+    padding-right: unset;
+    padding: 24px 24px 16px 40px;
+  }
+
+  @include tablet-lg {
+    padding-right: unset;
+    padding: 16px; 
+  }
+
+  @include mobile {
+    flex-direction: column;
+    justify-content: start;
+    row-gap: 8px;
+    margin-top: -16px;
+    padding: 16px 16px 26px 16px !important;
+    height: auto;
+    border-radius: 25px;
+  }
+}
+
+.solution__rows-item-title {
+  font-weight: 700;
+  font-size: 32px;
+
+  @include laptop {
+    font-size: 24px;
+  }
+
+  @include tablet {
+    font-size: 18px;
+  }
+
+  @include mobile {
+    line-height: 1.16;
+
+  }
+}
+
+.solution__rows-item-text {
+  max-width: 600px;
+
+  @include laptop {
+   max-width: 48%;
+  }
+
+  @include tablet {
+    font-size: 12px;
+    max-width: 440px;
+  }
+
+  @include tablet-xl {
+    max-width: 50%;
+    padding-left: 16px;
+  }
+
+  @include tablet-lg {
+    max-width: 53%;
+  }
+
+  @include mobile {
+    line-height: 1.33;
+    max-width: 100%;
+    padding-left: unset;
+  }
+
+}
+
+.solution__rows-btn {
+  margin-top: 50px;
+  display: grid;
+  width: 100%;
+  grid-template-columns: minmax(290px, 612px);
+  justify-content: end;
+
+  @include laptop {
+    margin-top: 40px;
+  }
+
+  @include tablet {
+    margin-top: 46px;
+  }
+
+  @include tablet-lg {
+    margin-top: 32px;
+  }
+}
+
+.solutions-btn {
+  border-radius: 40px;
+}

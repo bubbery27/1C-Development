@@ -1,0 +1,206 @@
+.burger-menu-btn-w {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  z-index: 1000;
+  display: none;
+
+  @include tablet-xl {
+    display: block;
+  }
+}
+
+.burger-menu-btn {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  background: $nav-hover;
+  border-radius: 19px;
+
+  &.burger-menu-btn--opened {
+    .burger-menu-btn__line {
+      opacity: 0;
+
+      &:first-child {
+        top: calc(50% - 1px);
+        opacity: 1;
+        transform: rotate(-45deg);
+      }
+
+      &:last-child {
+        top: calc(50% - 1px);
+        opacity: 1;
+        transform: rotate(45deg);
+      }
+    }
+  }
+}
+
+.burger-menu-btn__line {
+  position: absolute;
+  display: block;
+  width: 18px;
+  height: 2px;
+  background-color: #000;
+  transition: transform 0.15s ease;
+
+  &:first-child {
+    top: calc(50% - 1px - 5px); // 50% высота родителя, 1px (50% высоты палочки), 5px отступ от середины
+  }
+
+  &:last-child {
+    top: calc(50% - 1px + 5px); // 50% высота родителя, 1px (50% высоты палочки), -5px отступ от середины
+  }
+}
+
+.burger-menu {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: -100%;
+  transition: all 0.15s ease-in;
+  z-index: 10;
+  background: #fff;
+  
+
+  &.burger-menu--opened {
+    top: 88px;
+
+    @include mobile() {
+      top: 80px;
+    }
+  }
+}
+
+
+.hamburger-nav {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: calc(100vh - 88px);
+  padding-bottom: 25px;
+  overflow-y: scroll;
+
+  @include mobile() {
+    height: calc(100vh - 80px);
+  }
+}
+
+.menu__box {
+  list-style: none;
+}
+
+.menu__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 72px;
+  width: 100%;
+  color: $black;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  transition-duration: 0.25s;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 20px;
+    top: 50%;
+    right: 27px;
+    transform: translate(-50%, -50%);
+    background: url(../img/burger-menu/arrow.svg) no-repeat center;
+  }
+
+  a {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    padding: 0 15px;
+
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 170px;
+      height: 48px;
+      border-radius: 60px;
+      background-color: $nav-hover;
+    }
+  }
+}
+
+.hamburger__tel-w {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.18;
+  letter-spacing: 0.04rem;
+  width: fit-content;
+  margin-left: 15px;
+  margin-top: 25px;
+  margin-bottom: 15px;
+
+  @include tablet-xl() {
+    display: none;
+  }
+
+  @include mobile() {
+    display: flex;
+  }
+}
+
+.hamburger__tel-num {
+  position: relative;
+  display: flex;
+  margin-bottom: 4px;
+  font-weight: 500;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 11px;
+    background: url(../img/header/tel.svg) no-repeat center;
+  }
+}
+
+.hamburger__tel-pop {
+  display: inline-block;
+  color: $blue;
+  transition: transform 0.15s ease-in;
+  align-self: end;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.hamburger-site-link {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+  margin-left: 15px;
+
+  @include tablet-xl() {
+    display: none;
+  }
+
+  @include mobile() {
+    display: flex;
+  }
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    margin-right: 11px;
+    background: url(../img/header/open.svg) no-repeat center;
+  }
+}

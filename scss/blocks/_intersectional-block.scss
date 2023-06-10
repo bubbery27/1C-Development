@@ -1,0 +1,14 @@
+.intersectional-blok {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(
+    72.05deg,
+    #e6efff 12.23%,
+    #d9e1ff 50.72%,
+    #cbd2ff 88.67%
+  );
+
+  @include tablet-xl {
+    height: 176px;
+  }
+}

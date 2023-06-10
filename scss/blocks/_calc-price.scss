@@ -1,0 +1,615 @@
+.calc-price {
+  margin-top: -120px;
+  position: relative;
+  background-color: #ffffff;
+}
+
+.calc-price-wrap {
+  display: flex;
+
+  @include tablet-lg {
+    flex-direction: column;
+  }
+}
+
+.calc-price__inputs-column {
+  border-radius: 100px 0 0 0;
+  padding: 0 40px 200px 120px;
+  max-width: 1200px;
+  flex-grow: 2;
+
+  @include laptop {
+    padding: 0 40px 200px 56px;
+  }
+  
+  @include tablet {
+    padding: 0 40px 184px 56px;
+    border-radius: 80px 0 0 0;
+  }
+
+  @include tablet-xl {
+    padding: 0 40px 176px 40px;
+  }
+
+  @include tablet-lg {
+    border-radius: 80px 80px 0 0;
+    padding: 0 40px 40px 40px;
+  }
+
+  @include mobile {
+    border-radius: 40px 40px 0 0;
+    padding: 0 15px 30px;
+  }
+}
+
+.inputs-w {
+  @include laptop {
+    display: flex;
+    flex-direction: column;
+    row-gap: 18px;
+  }
+}
+
+.calc-price__summary-column {
+  border-radius: 0px 100px 0 0;
+  max-width: 720px;
+  background-color: $black;
+  color: #fff;
+  padding: 0 120px 200px 64px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include laptop {
+    padding: 0 40px 200px;
+  }
+
+  @include tablet {
+    max-width: 42vw;
+    border-radius: 0 80px 0 0;
+    padding: 0 40px 184px;
+  }
+
+  @include tablet-xl {
+    padding: 0 40px 176px;
+  }
+
+  @include tablet-lg {
+    max-width: 100%;
+    border-radius: unset;
+  }
+  
+  @include tablet {
+    padding: 0 15px 176px;
+  }
+
+
+}
+
+.calc-price__text {
+  margin-top: 16px;
+  margin-bottom: 32px;
+
+  @include laptop {
+    margin-bottom: 24px;
+  }
+}
+
+.service-inputs {
+  margin-bottom: 32px;
+
+  @include laptop {
+    margin-bottom: unset;
+  }
+}
+
+.input-title {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 24px;
+
+  @include laptop {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+}
+
+.service-inputs__list {
+  display: flex;
+  align-items: center;
+  column-gap: 48px;
+
+  @include laptop {
+    column-gap: 28px;
+  }
+
+  @include tablet-xl {
+    display: grid;
+    gap: 20px 40px;
+    grid-template-columns: repeat(auto-fit, 195px);
+  }
+  
+  @include tablet-lg {
+    grid-template-columns: repeat(auto-fit, 235px);
+  }
+}
+
+.service-inputs__list-item-label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 19px;
+  column-gap: 19px;
+
+  &:hover {
+    & > span::after {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  @include laptop {
+    column-gap: 11px;
+  }
+}
+
+.service-inputs__list-item-real-input {
+  width: 0;
+  height: 0;
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+
+  &:checked {
+    & ~ span {
+      border-color: $blue;
+
+      &::before {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+  }
+}
+
+.service-inputs__list-item-custom-input {
+  position: relative;
+  display: inline-block;
+  min-width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 3px solid rgba(0, 0, 0, 0.6);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: $blue;
+    transition: transform 0.05s ease-in;
+
+    @include laptop {
+      width: 10px;
+      height: 10px;
+    }
+
+    @include tablet {
+      width: 9px;
+      height: 9px;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    display: inline-block;
+    min-width: 14px;
+    min-height: 14px;
+    border-radius: 50%;
+    opacity: 0.3;
+    background-color: $blue;
+    transition: transform 0.05s ease-in;
+
+    @include laptop {
+      width: 10px;
+      height: 10px;
+    }
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  @include laptop {
+    min-width: 20px;
+    height: 20px;
+    border: 2px solid rgba(0, 0, 0, 0.6);
+  }
+
+  @include tablet {
+    min-width: 18px;
+    height: 18px;
+  }
+}
+
+.team-inputs {
+  margin-bottom: 36px;
+
+  @include laptop {
+    margin-bottom: unset;
+  }
+}
+
+.team-inputs__list {
+  display: flex;
+  column-gap: 45px;
+
+  @include laptop {
+    column-gap: 24px;
+  }
+
+  @include tablet {
+    column-gap: 40px;
+  }
+
+  @include tablet-xl {
+    display: grid;
+    gap: 20px 40px;
+    grid-template-columns: repeat(auto-fit, 195px);
+  }
+}
+
+.count {
+  display: flex;
+  align-items: center;
+}
+
+.count__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $blue;
+  min-width: 26px;
+  min-height: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+
+  svg {
+    width: 50%;
+    height: 50%;
+    pointer-events: none; //отключает клик по svg, проваливается в кнопку дальше
+  }
+
+  &:hover {
+    background-color: $blue-hovered;
+  }
+
+  &:active {
+    background-color: $blue-pressed;
+  }
+
+  @include laptop {
+    min-width: 20px;
+    min-height: 20px;
+  }
+}
+
+.count__button_inactive {
+  background-color: #f1f1f1;
+
+  & svg path {
+    fill: #858a96;
+  }
+
+  &:hover {
+    background-color: #f1f1f1;
+  }
+
+  &:active {
+    background-color: #f1f1f1;
+  }
+}
+
+.count__input::-webkit-inner-spin-button,
+.count__input::-webkit-outer-spin-button {
+  display: none;
+}
+
+.count__input {
+  font-family: 'SF Pro Display';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.5;
+  width: 2rem;
+  height: 25px;
+  margin: 0 12px;
+  border: none;
+  text-align: center;
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+  appearance: textfield;
+
+  @include tablet {
+    margin: 0 3px;
+  }
+}
+
+.count__label {
+  margin-left: 16px;
+}
+
+.products-inputs {
+  margin-bottom: 32px;
+
+  @include laptop {
+    margin-bottom: unset;
+  }
+}
+
+.products-inputs__list {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: auto;
+  justify-content: start;
+  gap: 24px 48px;
+
+  @include laptop {
+    gap: 24px 59px;
+  }
+
+  @include tablet-xl {
+    gap: 24px 40px;
+    grid-template-columns: repeat(auto-fit, 195px);
+  }
+
+  @include tablet-lg {
+    @include tablet-xl {
+      gap: 24px 40px;
+      grid-template-columns: repeat(auto-fit, 220px);
+    }
+  }
+}
+
+.products-inputs__list-item-label {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+  cursor: pointer;
+
+  &:hover {
+    & > span {
+      &::after {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+  }
+
+  @include laptop {
+    column-gap: 11px;
+  }
+  
+}
+
+.products-inputs__list-item-real-input {
+  width: 0;
+  height: 0;
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+
+  &:checked {
+    & ~ span {
+      border-color: $blue;
+      background-color: $blue;
+
+      &::before {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+  }
+}
+
+.products-inputs__list-item-custom-input {
+  position: relative;
+  display: inline-block;
+  min-width: 24px;
+  min-height: 24px;
+  border-radius: 3px;
+  border: 3px solid rgba(0, 0, 0, 0.6);
+
+  &::before {
+    content: '';
+    background: url(../img/calc-price/check.svg) no-repeat center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-size: 130%;
+    transition: transform 0.05s ease-in;
+
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    opacity: 0.3;
+    background-color: $blue;
+    border-radius: 2px;
+    transition: transform 0.05s ease-in;
+
+    @include laptop {
+      width: 8px;
+      height: 8px;
+    }
+  }
+
+  @include laptop {
+    min-width: 18px;
+    min-height: 18px;
+    border: 2px solid rgba(0, 0, 0, 0.6);
+  }
+
+  @include tablet {
+    min-width: 16px;
+    min-height: 16px;
+  }
+}
+
+.duration-input {
+  max-width: 996px;
+}
+
+.range-input {
+  position: relative;
+  margin-top: 42px;
+  padding-bottom: 20px;
+}
+
+.range-input__slider {
+  margin-bottom: 16px;
+}
+
+.range-input__dates {
+  position: relative;
+  font-size: 14px;
+}
+
+.range-input__dates-date {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+
+  &:first-child {
+    left: 12.5%;
+  }
+  &:nth-child(2) {
+    left: 25%;
+  }
+  &:nth-child(3) {
+    left: 37.5%;
+  }
+  &:nth-child(4) {
+    left: 50%;
+  }
+  &:nth-child(5) {
+    left: 75%;
+  }
+  &:nth-child(6) {
+    left: 100%;
+
+    @include mobile {
+      left: 98.5%;
+    }
+  }
+
+  @include tablet-xl {
+    font-size: 11px;
+  }
+}
+
+.calc-price__summary-column-content {
+  @include tablet-lg {
+    margin-bottom: 32px;
+  }
+}
+
+.select-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  margin-top: 20px;
+  font-family: $font-popup-filter;
+}
+
+.services-grid {
+  display: flex;
+  column-gap: 16px;
+}
+
+.select-list__item {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 16px;
+  background-color: rgba(255, 255, 255, 0.08);
+  font-size: 14px;
+  line-height: 1;
+  transition: background-color 0.15s ease-in;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.192);
+  }
+
+  img {
+    cursor: pointer;
+    align-self: center;
+    margin-left: 9px;
+  }
+
+  @include tablet-xl {
+    font-size: 12px;
+  }
+}
+
+.team-grid {
+  display: flex;
+  column-gap: 16px;
+  flex-wrap: wrap;
+  row-gap: 24px;
+}
+
+.team-count-number {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 0.8;
+  margin-right: 4px;
+
+  @include tablet-lg {
+    font-size: 13px;
+    font-weight: 400;
+  }
+}
+
+.products-grid {
+  display: flex;
+  column-gap: 16px;
+  row-gap: 24px;
+  flex-wrap: wrap;
+}
+
+.range-grid {
+  display: flex;
+  row-gap: 24px;
+
+  .range-date {
+    margin-left: 4px;
+  }
+}
+
+.calc-price__summary-btn {
+  display: grid;
+  width: 100%;
+  grid-template-columns: minmax(290px, 535px);
+  justify-content: center;
+}
+
+.calc-price-btn {
+  border-radius: 40px;
+}

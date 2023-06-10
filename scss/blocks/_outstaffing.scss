@@ -1,0 +1,230 @@
+.outstaffing {
+  margin-top: -120px;
+  padding-bottom: 200px;
+  background-color: #fff;
+
+  @include tablet {
+    padding-bottom: 184px;
+  }
+
+  @include tablet-xl {
+    padding-bottom: 176px;
+  }
+}
+
+.outstaffing__cards {
+  display: grid;
+  grid-template-columns: 32% 36% 32%;
+  grid-template-rows: 315px auto;
+  row-gap: 60px;
+
+  @include laptop() {
+    grid-template-rows: 270px auto;
+    row-gap: 40px;
+  }
+
+  @include tablet() {
+    grid-template-rows: 203px auto;
+    row-gap: 32px;
+  }
+
+  @include tablet-xl() {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    row-gap: unset;
+  }
+}
+
+.outstaffing__cards-item {
+  display: flex;
+  align-items: center;
+  border-right: 2px solid #b7b7b7;
+
+  @include laptop() {
+    align-items: start;
+    padding-top: 15px;
+    padding: 15px 48px;
+  }
+
+  @include tablet-xl() {
+    justify-content: start;
+    border-right: none;
+    border-bottom: 2px solid #b7b7b7;
+    padding: 32px 0;
+  }
+
+  .outstaffing__cards-item-content {
+    margin: 0 auto;
+  }
+
+  &:first-child {
+    padding: 15px 48px 15px 0;
+
+    @include laptop() {
+        padding: 15px 48px 15px 0;
+    }
+
+    @include tablet-xl() {
+        padding: 32px 0;
+    }
+
+    @include tablet-lg() {
+        padding: 32px 0;
+        padding-top: 0;
+    }
+
+    .outstaffing__cards-item-content {
+      margin: unset;
+      margin-right: auto;
+    }
+  }
+
+  &:nth-child(3) {
+    border-right: none;
+
+    @include laptop() {
+        padding: 15px 0 15px 48px;
+    }
+
+    @include tablet-xl() {
+      border-bottom: none;
+      padding: 32px 0;
+    }
+
+    .outstaffing__cards-item-content {
+        margin: unset;
+        margin-left: auto;
+      }
+  }
+}
+
+.outstaffing__cards-item-content {
+  display: flex;
+  max-width: 452px;
+
+  @include tablet-xl() {
+    max-width: unset;
+  }
+}
+
+.outstaffing__cards-item-content-img {
+  display: flex;
+  min-width: 120px;
+  min-height: 120px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #cfcfcf;
+  border-radius: 50%;
+
+  img {
+    width: 50%;
+    height: 50%;
+  }
+
+  @include laptop() {
+    min-width: 100px;
+    min-height: 100px;
+  }
+
+  @include tablet() {
+    min-width: 80px;
+    min-height: 80px;
+  }
+
+  @include tablet-xl() {
+    min-width: 120px;
+    min-height: 120px;
+  }
+
+  @include tablet-lg() {
+    min-width: 100px;
+    min-height: 100px;
+  }
+
+  @include mobile() {
+    min-width: 80px;
+    min-height: 80px;
+  }
+}
+
+.outstaffing__cards-item-content-right {
+  margin-left: 32px;
+
+  @include laptop() {
+    margin-left: 24px;
+  }
+
+  @include tablet() {
+    margin-left: 16px;
+  }
+}
+
+.outstaffing__cards-item-content-right-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 14px;
+
+  @include laptop() {
+    font-size: 24px;
+  }
+
+  @include tablet() {
+    font-size: 18px;
+  }
+
+  @include tablet-xl() {
+    font-size: 28px;
+  }
+
+  @include mobile() {
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+}
+
+.outstaffing__cards-item-content-right-text {
+  @include laptop() {
+    font-size: 14px;
+  }
+
+  @include tablet() {
+    font-size: 12px;
+  }
+
+  @include tablet-xl() {
+    font-size: 16px;
+  }
+
+  @include tablet-lg() {
+    font-size: 14px;
+  }
+
+  @include mobile() {
+    font-size: 12px;
+  }
+}
+
+.outstaffing-btn {
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  justify-self: center;
+  width: 100%;
+
+  @include tablet-xl() {
+    grid-column-start: unset;
+    grid-column-end: unset;
+    grid-row-start: unset;
+    grid-row-end: unset;
+    width: 60%;
+  }
+
+  @include tablet-lg {
+    width: 80%;
+  }
+
+  @include mobile {
+    width: 100%;
+  }
+}

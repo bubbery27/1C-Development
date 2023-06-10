@@ -1,0 +1,177 @@
+.moduls {
+  margin-top: -120px;
+  padding-bottom: 200px;
+  background: linear-gradient(
+    89.37deg,
+    #eff1f4 0.54%,
+    #fdfafa 46.55%,
+    #fff5f6 99.5%
+  );
+
+  @include tablet {
+    padding-bottom: 184px;
+  }
+
+  @include tablet-xl {
+    padding-bottom: 176px;
+  }
+}
+
+.moduls__cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(290px, 400px));
+  grid-template-rows: 316px auto;
+  justify-content: center;
+  gap: 60px 64px;
+
+  @include laptop {
+    grid-template-rows: auto;
+    gap: 40px 64px;
+  }
+
+  @include tablet {
+    gap: 0 103px;
+  }
+
+  @include tablet {
+    gap: 0 103px;
+  }
+
+  @include tablet-xl {
+    gap: 0 24px;
+  }
+
+  @include tablet-lg {
+    grid-template-columns: 1fr;
+    gap: 16px 0;
+  }
+}
+
+.moduls__cards-item {
+  background-color: #fff;
+  padding: 32px 16px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  box-shadow: 0px 100px 80px rgba(1, 101, 255, 0.07),
+    0px 64.8148px 46.8519px rgba(1, 101, 255, 0.0531481),
+    0px 38.5185px 25.4815px rgba(1, 101, 255, 0.0425185),
+    0px 20px 13px rgba(1, 101, 255, 0.035),
+    0px 8.14815px 6.51852px rgba(1, 101, 255, 0.0274815),
+    0px 1.85185px 3.14815px rgba(1, 101, 255, 0.0168519);
+
+  &:nth-child(2) {
+    border-radius: 0 55px;
+
+    @include tablet-lg {
+      border-radius: 0 35px;
+    }
+
+    @include mobile {
+      border-radius: 0 25px;
+    }
+  }
+
+  @include laptop {
+    padding: 24px 24px 24px 24px;
+  }
+
+  @include mobile {
+    row-gap: 8px;
+    padding: 16px 24px;
+  }
+
+  
+ 
+}
+
+.moduls__cards-item-num {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+  max-width: 95%;
+  padding-bottom: 24px;
+  border-bottom: 2px solid #d01c28;
+
+  @include laptop {
+    padding-bottom: 16px;
+  }
+
+  @include tablet {
+    font-size: 28px;
+    max-width: 100%;
+  }
+
+  @include mobile {
+    padding-bottom: 16px;
+    margin-bottom: 8px;
+  }
+
+  @include tablet-lg {
+    display: none;
+  }
+
+  @include mobile {
+    display: block;
+  }
+}
+
+.moduls__cards-item-title {
+  font-size: 24px;
+  font-weight: 700;
+
+  @include laptop {
+    font-size: 22px;
+  }
+
+  @include tablet {
+    font-size: 18px;
+    line-height: 1.16;
+  }
+
+  @include tablet-lg {
+    font-size: 24px;
+    border-bottom: 2px solid #d01c28;
+    padding-bottom: 1.5vw;
+  }
+
+  @include mobile {
+    font-size: 18px;
+    padding-bottom: unset;
+    border: none;
+  }
+}
+
+.moduls__cards-item-text {
+  font-size: 16px;
+  max-width: 300px;
+
+  @include laptop {
+    font-size: 14px;
+  }
+
+  @include tablet {
+    font-size: 12px;
+  }
+
+  @include tablet-lg {
+    font-size: 16px;
+    max-width: unset;
+  }
+
+  @include mobile {
+    font-size: 12px;
+  }
+}
+
+.muduls-btn {
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  width: 100%;
+
+  @include tablet {
+    display: none;
+  }
+}

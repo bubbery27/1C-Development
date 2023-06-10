@@ -1,0 +1,135 @@
+.contact-us {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(92.49deg, #1a233b 0%, #01278e 185.36%);
+  padding-bottom: 80px;
+  @include tablet() {
+    padding-bottom: 56px;
+  }
+  @include tablet-lg() {
+    padding-bottom: 40px;
+  }
+}
+
+.contact-us__content {
+  padding-right: 475px;
+
+  @include tablet() {
+    padding-right: 360px;
+  }
+
+  @include tablet-lg() {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+    padding-right: unset;
+  }
+}
+
+.contact-us__section-title {
+  @include laptop() {
+    font-size: 50px;
+  }
+
+  @include tablet() {
+    font-size: 48px;
+  }
+
+  @include tablet-xl() {
+    font-size: 35px;
+  }
+
+  @include tablet-lg() {
+    font-size: 42px;
+  }
+
+  @include mobile() {
+    font-size: 6.5vw;
+  }
+}
+
+.contact-us__text {
+  font-size: 28px;
+  margin-top: 28px;
+  margin-bottom: 52px;
+  color: #fff;
+
+  @include laptop() {
+    font-size: 22px;
+  }
+
+  @include tablet() {
+    font-size: 18px;
+    max-width: 600px;
+    margin-bottom: 32px;
+  }
+
+  @include tablet-xl() {
+    font-size: 16px;
+    margin-top: 15px;
+  }
+
+  @include tablet-lg() {
+    font-size: 18px;
+    margin-top: unset;
+    max-width: unset;
+    margin-bottom: unset;
+  }
+
+  @include mobile() {
+    font-size: 14px;
+  }
+}
+
+.contact-us__btn {
+  display: grid;
+  width: 100%;
+  grid-template-columns: minmax(290px, 548px);
+  justify-content: start;
+
+  @include tablet() {
+    grid-template-columns: minmax(290px, 400px);
+  }
+
+  @include tablet-lg() {
+    font-size: 18px;
+    grid-template-columns: 1fr
+  }
+}
+
+.contact-us__img {
+  position: absolute;
+  right: -33px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  @include laptop() {
+    width: 433px;
+    height: 287px;
+  }
+
+  @include tablet() {
+    width: 381px;
+    height: 253px;
+  }
+
+  @include tablet-lg() {
+    width: 433px;
+    height: 287px;
+    position: static;
+    right: unset;
+    top: unset;
+    transform: unset;
+  }
+
+  @include mobile() {
+    width: 80%;
+    height: auto;
+
+  }
+}

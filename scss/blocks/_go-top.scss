@@ -1,0 +1,50 @@
+.go-top {
+    cursor: pointer; /* при наведении меняем курсор */
+    position: fixed; /* фиксированное позиционирование */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 64px;
+    height: 64px;
+    right: 20px; /* отступ слева 20px */
+    top: 50%; /* выравниваем по центру */
+    transform: translateY(-50%); /* выравниваем по центру */
+    display: none; /* по умолчанию скрываем кнопку */
+    font-size: 20px;
+    color: rgba(0, 51, 153, 0.5);
+    border: 1px solid $blue;
+    border-radius: 50%;
+    background-color: #fff;
+    z-index: 4;
+    transition: all 0.15s ease-in;
+    opacity: 0.2;
+    box-shadow: 0px 100px 80px rgba(1, 101, 255, 0.07),
+    0px 64.8148px 46.8519px rgba(1, 101, 255, 0.0531481),
+    0px 38.5185px 25.4815px rgba(1, 101, 255, 0.0425185),
+    0px 20px 13px rgba(1, 101, 255, 0.035),
+    0px 8.14815px 6.51852px rgba(1, 101, 255, 0.0274815),
+    0px 1.85185px 3.14815px rgba(1, 101, 255, 0.0168519);
+    filter: sepia(100);
+
+    @include tablet-xl {
+        width: 48px;
+        height: 48px;
+    }
+
+
+  }
+  
+  /* меняем прозрачность при наведении мышкой */
+  .go-top:hover {
+    color: rgba(0, 51, 153, 0.8);
+    border: 1px solid rgba(0, 51, 153, 0.8);
+    background-color: rgba(255, 255, 255, 1);
+    opacity: 1;
+    filter: unset;
+  }
+  
+  /* модификатор для отображения кнопки */
+  .go-top--show {
+    display: flex;
+
+  }
