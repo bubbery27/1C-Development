@@ -1,0 +1,299 @@
+.itc-slider {
+  position: relative;
+  margin-top: 80px;
+
+  @include laptop {
+    margin-top: 64px;
+  }
+
+  @include tablet {
+    margin-top: 38px;
+  }
+
+  @include tablet-xl {
+    margin-top: 32px;
+  }
+}
+
+.itc-slider-wrapper {
+  overflow: hidden;
+  max-width: 1640px;
+  margin-left: -60px;
+  padding-bottom: 220px;
+
+  @include laptop {
+    width: 90vw;
+    max-width: unset;
+    padding-bottom: 200px;
+  }
+
+  @media (max-width: 1790px) {
+    width: 92vw;
+  }
+
+  @include tablet {
+    width: 90vw;
+  }
+
+  @include tablet-xl {
+    width: 93vw;
+  }
+
+  @include tablet-lg {
+    width: calc(100% + 80px);
+    margin-left: -40px;
+    padding-bottom: 200px;
+  }
+
+  @include mobile {
+    width: calc(100% + 30px);
+    margin-left: -15px;
+    padding-bottom: 176px;
+  }
+}
+
+.itc-slider-items {
+  display: flex;
+  transition: transform 0.5s ease;
+  will-change: transform;
+  gap: 90px;
+  padding-left: 60px;
+
+  @include laptop {
+    gap: 5.2vw;
+  }
+
+  @include tablet {
+    gap: 5.3vw;
+  }
+
+  @include tablet-lg {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 120px));
+    justify-content: space-around;
+    padding-left: unset;
+    justify-items: center;
+    padding: 0 40px;
+    gap: 24px 21px;
+  }
+
+  @media (max-width: 904px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 760px) {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 120px));
+  }
+
+  @include mobile {
+    grid-template-columns: repeat(auto-fit, 100px);
+    padding: 0 15px;
+  }
+}
+
+.itc-slider-transition-none {
+  transition: none;
+}
+
+.itc-slider-item {
+  --gap: 89px;
+  display: flex;
+  flex: 0 0 calc(180px - var(--gap) * 5 / 6);
+  max-width: 100%;
+  user-select: none;
+  will-change: transform;
+  min-width: 180px;
+  min-height: 180px;
+  border-radius: 50%;
+  border: 1px solid #cfcfcf;
+  background-color: #fff;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 0px 100px 80px rgba(1, 101, 255, 0.07),
+    0px 64.8148px 46.8519px rgba(1, 101, 255, 0.0531481),
+    0px 38.5185px 25.4815px rgba(1, 101, 255, 0.0425185),
+    0px 20px 13px rgba(1, 101, 255, 0.035),
+    0px 8.14815px 6.51852px rgba(1, 101, 255, 0.0274815),
+    0px 1.85185px 3.14815px rgba(1, 101, 255, 0.0168519);
+
+  img {
+    width: 75%;
+  }
+
+  @include laptop {
+    --gap: 5.2vw;
+    min-width: 9.9vw;
+    min-height: 9.9vw;
+    flex: 0 0 calc(140px - var(--gap) * 5 / 6);
+  }
+
+  @include tablet {
+    --gap: 5.2vw;
+    min-width: 9.4vw;
+    min-height: 9.4vw;
+  }
+
+  @include tablet-lg {
+    width: 120px;
+   height: 120px;
+   flex: unset;
+  }
+
+  @include mobile {
+   width: 100px;
+   height: 100px;
+   min-width: unset;
+   min-height: unset;
+  }
+}
+
+
+/* кнопки влево и вправо */
+.itc-slider-btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 65px;
+  height: 65px;
+  color: #fff;
+  background: $blue;
+  border-radius: 50%;
+  transition: transform 0.15s ease-in;
+  cursor: pointer;
+
+  svg {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+
+  &:hover {
+    background-color: $blue-hovered;
+  }
+
+  &:active {
+    background-color: $blue-pressed;
+  }
+
+  @include laptop {
+    width: 48px;
+    height: 48px;
+    right: -6vw;
+  }
+
+  @include tablet {
+    width: 40px;
+    height: 40px;
+  }
+
+  @media (max-width: 1867px) {
+    right: -4vw;
+  }
+
+  @media (max-width: 1790px) {
+    right: -1vw;
+  }
+
+  @media (max-width: 1710px) {
+    right: 0;
+  }
+
+  @include tablet-lg {
+    display: none;
+  }
+}
+
+.itc-slider-btn-hide {
+  background-color: #f1f1f1;
+  border: 1px #cfcfcf solid;
+  svg path {
+    fill: #cfcfcf;
+  }
+
+  &:hover {
+    background-color: #f1f1f1;
+  }
+
+  &:active {
+    background-color: #f1f1f1;
+  }
+}
+
+.itc-slider-btn:hover,
+.itc-slider-btn:focus {
+  text-decoration: none;
+  outline: 0;
+}
+
+.itc-slider-btn::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: transparent no-repeat center center;
+  background-size: 100% 100%;
+}
+
+.itc-slider-btn-wrap {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 50px;
+  top: 0;
+  right: 0;
+}
+
+.itc-slider-btn-prev::before {
+  background: url('../img/slider/Rectangle.svg') no-repeat center;
+  position: absolute;
+  width: 16px;
+  height: 24px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.itc-slider-btn-next {
+  svg {
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* индикаторы */
+.itc-slider-indicators {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 15;
+  display: flex;
+  justify-content: center;
+  margin: 0 15%;
+  padding-left: 0;
+  list-style: none;
+}
+
+.itc-slider-indicator {
+  flex: 0 1 auto;
+  box-sizing: content-box;
+  width: 30px;
+  height: 5px;
+  margin-right: 3px;
+  margin-left: 3px;
+  text-indent: -999px;
+  background-color: rgb(255 255 255 / 50%);
+  background-clip: padding-box;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  cursor: pointer;
+}
+
+.itc-slider-indicator-active {
+  background-color: rgb(255 255 255 / 90%);
+}
