@@ -3,10 +3,11 @@ const focusClass = 'modal-input--focus'
 const titleFocusClass = 'title-input--focus'
 const modalBtns = document.querySelectorAll('[data-modal-button]')
 
-
 modalBtns.forEach((button) => {
   button.addEventListener('click', () => {
-    const currentModal = document.querySelector(`[data-modal=${button.dataset.modalButton}]`)
+    const currentModal = document.querySelector(
+      `[data-modal=${button.dataset.modalButton}]`
+    )
     currentModal.classList.add('modal-open')
   })
 })
@@ -16,19 +17,26 @@ modals.forEach((modal) => {
   const modalCloseBtn = modal.querySelector('[data-close-modal]')
   const modalTabBtn = modal.querySelector('[data-modal-tab-button]')
   const modalTabs = modal.querySelectorAll('[data-modal-tab]')
-  
-  if (window.matchMedia('screen and (max-width: 574px)').matches){
+
+  if (window.matchMedia('screen and (max-width: 574px)').matches) {
     modalTabBtn.addEventListener('click', () => {
       modalTabBtn.classList.toggle(`${modalTabBtn.classList[0] + '--opened'}`)
       modalTabs.forEach((modalTab) => {
         modalTab.classList.toggle(`${modalTab.classList[0] + '--opened'}`)
       })
     })
-    modal.querySelector('[name="email"]').setAttribute('placeholder', 'Email')
-    modal.querySelector('[name="company"]').setAttribute('placeholder', 'Компания')
+
+    if (modal.querySelector('[name="email"]')) {
+      modal.querySelector('[name="email"]').setAttribute('placeholder', 'Email')
+      modal
+        .querySelector('[name="company"]')
+        .setAttribute('placeholder', 'Компания')
+    }
+    
   }
-  
-  modal.addEventListener('click', () => {
+
+  modal.addEventListener('click', (event) => {
+    console.log(event.target)
     modal.classList.remove('modal-open')
   })
 
@@ -36,16 +44,18 @@ modals.forEach((modal) => {
     event.stopPropagation()
   })
 
-  modalCloseBtn.addEventListener('click', () => {
+  modalCloseBtn.addEventListener('click', (event) => {
+    console.log(event.target)
     modal.classList.remove('modal-open')
   })
 
   inputBlocks.forEach((inputBlock) => {
     const inputs = inputBlock.querySelectorAll('.modal__inputs-item-input')
     const inputTitle = inputBlock.querySelector('.modal__inputs-item-title')
-    
 
-    const messageInput = modal.querySelector('.modal__inputs-item-input_message')
+    const messageInput = modal.querySelector(
+      '.modal__inputs-item-input_message'
+    )
     messageInput.addEventListener('keyup', (event) => {
       messageInput.style.height = '30px'
       let scrollHeight = event.target.scrollHeight

@@ -69,8 +69,6 @@ rangeInput.addEventListener(
   () => (formData.duration = slider.noUiSlider.get().replace(/\D/g, ''))
 )
 
-//BurgerMenu
-
 /* Burger Menu */
 const burgerBtn = document.querySelector('.burger-menu-btn')
 const burgerMenu = document.querySelector('.burger-menu')
@@ -81,7 +79,6 @@ burgerBtn.addEventListener('click', (event) => {
 })
 
 burgerMenu.addEventListener('click', (event) => {
-  console.log(event.target)
   if (
     event.target['tagName'] === 'A' ||
     event.target.parentElement['tagName'] === 'A' ||
