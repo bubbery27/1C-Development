@@ -1,7 +1,7 @@
 const modals = document.querySelectorAll('.modal')
+const modalBtns = document.querySelectorAll('[data-modal-button]')
 const focusClass = 'modal-input--focus'
 const titleFocusClass = 'title-input--focus'
-const modalBtns = document.querySelectorAll('[data-modal-button]')
 
 modalBtns.forEach((button) => {
   button.addEventListener('click', () => {
@@ -14,9 +14,9 @@ modalBtns.forEach((button) => {
 
 modals.forEach((modal) => {
   const inputBlocks = modal.querySelectorAll('.modal__inputs-item')
-  const modalCloseBtn = modal.querySelector('[data-close-modal]')
-  const modalTabBtn = modal.querySelector('[data-modal-tab-button]')
   const modalTabs = modal.querySelectorAll('[data-modal-tab]')
+  const modalTabBtn = modal.querySelector('[data-modal-tab-button]')
+  const modalCloseBtn = modal.querySelector('[data-close-modal]')
 
   if (window.matchMedia('screen and (max-width: 574px)').matches) {
     modalTabBtn.addEventListener('click', () => {
@@ -36,7 +36,6 @@ modals.forEach((modal) => {
   }
 
   modal.addEventListener('click', (event) => {
-    console.log(event.target)
     modal.classList.remove('modal-open')
   })
 
@@ -45,7 +44,6 @@ modals.forEach((modal) => {
   })
 
   modalCloseBtn.addEventListener('click', (event) => {
-    console.log(event.target)
     modal.classList.remove('modal-open')
   })
 
@@ -67,14 +65,19 @@ modals.forEach((modal) => {
         input.parentElement.classList.add(focusClass)
         input.previousElementSibling.classList.add(focusClass)
         input.nextElementSibling.classList.add(focusClass)
-        inputTitle.classList.add(titleFocusClass)
+        if (inputTitle) {
+          inputTitle.classList.add(titleFocusClass)
+        }
+
       })
 
       input.addEventListener('blur', () => {
         input.parentElement.classList.remove(focusClass)
         input.previousElementSibling.classList.remove(focusClass)
         input.nextElementSibling.classList.remove(focusClass)
-        inputTitle.classList.remove(titleFocusClass)
+        if (inputTitle) {
+          inputTitle.classList.remove(titleFocusClass)
+        }
       })
     })
   })

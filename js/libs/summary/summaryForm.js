@@ -34,11 +34,11 @@ function summaryColumn() {
 
     function change(inputText) {
       let selectedInput = section.querySelector(`[name="radioService"]:checked`)
-      const listItem = document.createElement('div')
       const listItems = servicesSummary.querySelectorAll('.select-list__item')
       formData.service = selectedInput.parentElement.innerText
       servicesSummary.classList.remove('hidden')
-
+      
+      const listItem = document.createElement('div')
       listItem.classList.add('select-list__item')
       listItem.innerHTML = `
       ${inputText}

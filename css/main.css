@@ -4569,6 +4569,17 @@ p {
   min-height: 35px;
   border-bottom: 1px solid #1A233B;
 }
+.modal__inputs-item.error {
+  border-bottom: 1px solid rgba(255, 0, 0, 0.6);
+}
+.modal__inputs-item.error .modal__inputs-item-cap-right {
+  border-right: 1px solid rgba(255, 0, 0, 0.6);
+  border-bottom: 1px solid rgba(255, 0, 0, 0.6);
+}
+.modal__inputs-item.error .modal__inputs-item-cap-left {
+  border-left: 1px solid rgba(255, 0, 0, 0.6);
+  border-bottom: 1px solid rgba(255, 0, 0, 0.6);
+}
 @media (max-width: 1439px) {
   .modal__inputs-item {
     font-size: 14px;
@@ -4583,8 +4594,8 @@ p {
   bottom: -1px;
   border: none;
   border-color: inherit;
-  border-left: 1px solid #1A233B;
-  border-bottom: 1px solid #1A233B;
+  border-left: 1px solid;
+  border-bottom: 1px solid;
   border-radius: 0 0 0 100%;
 }
 
@@ -4595,13 +4606,21 @@ p {
   right: -8px;
   bottom: -1px;
   border-color: inherit;
-  border-right: 1px solid #1A233B;
-  border-bottom: 1px solid #1A233B;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
   border-radius: 0 0 100% 0;
 }
 
 .modal-input--focus {
   border-color: #1F50FE;
+}
+
+.error-label {
+  position: absolute;
+  left: 0;
+  bottom: -23px;
+  font-size: 14px;
+  color: red;
 }
 
 .modal__inputs-item-title {

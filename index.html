@@ -1105,7 +1105,7 @@
         </section>
 
        <section class="calc-price rounded-section none1" id="calc-price">
-         <form action="#" method="get" onsubmit="return false" name="pageForm">
+         <form onsubmit="return false">
           <div class="calc-price-wrap">
               
             <div class="calc-price__inputs-column">
@@ -1466,7 +1466,7 @@
        </footer>
 
        <div class="modal none1" data-modal="calc-price">
-          <form id="calc-price-form" action="#" onsubmit="return false" name="pageForm">
+          <form id="calc-price-form" action="#" name="pageForm">
             <div class="modal-window">
               <button data-close-modal type="button" class="button close-modal">
                 <img src="./img/modal/close-modal.svg" alt="X">
@@ -1479,20 +1479,20 @@
 
                     <div class="modal__inputs-item">
                       <span class="modal__inputs-item-cap-left"></span>
-                      <input type="text" class="modal__inputs-item-input" placeholder="Имя и фамилия" name="name" maxlength="50" required>
+                      <input type="text" class="modal__inputs-item-input" placeholder="Имя" name="name" data-required="true" data-reg="^[а-яёА-ЯЁa-zA-Z\s]*$" maxlength="50" >
                       <span class="modal__inputs-item-cap-right"></span>
                     </div>
 
                     <div class="modal__inputs-item">
                       <label class="modal__inputs-item-title">Email</label>
                       <span class="modal__inputs-item-cap-left"></span>
-                      <input type="email" class="modal__inputs-item-input" placeholder="example@mail.com" name="email" maxlength="70" required>
+                      <input type="email" class="modal__inputs-item-input" placeholder="example@mail.com" name="email"  data-reg="^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$" maxlength="70" required>
                       <span class="modal__inputs-item-cap-right"></span>
                     </div>
 
                     <div class="modal__inputs-item">
                       <span class="modal__inputs-item-cap-left"></span>
-                      <input type="tel" class="modal__inputs-item-input" placeholder="Телефон" name="phone" required>
+                      <input type="tel" class="modal__inputs-item-input" placeholder="Телефон" name="phone" data-required="true" data-reg="^((\+7|7|8)+([0-9]){10})$">
                       <span class="modal__inputs-item-cap-right"></span>
                     </div>
 
@@ -1559,7 +1559,7 @@
        </div>
 
        <div class="modal none1" data-modal="consultation">
-        <form id="consultation-form" action="#" onsubmit="return false" name="pageForm">
+        <form id="consultation-form" action="#" name="pageForm">
           <div class="modal-window">
             <button data-close-modal type="button" class="button close-modal">
               <img src="./img/modal/close-modal.svg" alt="X">
@@ -1572,20 +1572,20 @@
 
                   <div class="modal__inputs-item">
                     <span class="modal__inputs-item-cap-left"></span>
-                    <input type="text" class="modal__inputs-item-input" placeholder="Имя и фамилия" name="name" maxlength="50" required>
+                    <input type="text" class="modal__inputs-item-input" placeholder="Имя" name="name" data-required="true"  data-reg="^[а-яёА-ЯЁa-zA-Z\s]*$" maxlength="50" >
                     <span class="modal__inputs-item-cap-right"></span>
                   </div>
 
                   <div class="modal__inputs-item">
                     <label class="modal__inputs-item-title">Email</label>
                     <span class="modal__inputs-item-cap-left"></span>
-                    <input type="email" class="modal__inputs-item-input" placeholder="example@mail.com" name="email" maxlength="70" required>
+                    <input type="email" class="modal__inputs-item-input" placeholder="example@mail.com" name="email"  data-reg="^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$" maxlength="70" >
                     <span class="modal__inputs-item-cap-right"></span>
                   </div>
 
                   <div class="modal__inputs-item">
                     <span class="modal__inputs-item-cap-left"></span>
-                    <input type="tel" class="modal__inputs-item-input" placeholder="Телефон" name="phone" required>
+                    <input type="tel" class="modal__inputs-item-input" placeholder="Телефон" name="phone" data-required="true" data-reg="^((\+7|7|8)+([0-9]){10})$" novalidate>
                     <span class="modal__inputs-item-cap-right"></span>
                   </div>
 
@@ -1652,7 +1652,7 @@
        </div>
 
        <div class="modal none1" data-modal="call-request">
-        <form id="call-request-form" action="#" onsubmit="return false" name="pageForm">
+        <form id="call-request-form" action="#" name="pageForm">
           <div class="modal-window">
             <button data-close-modal type="button" class="button close-modal">
               <img src="./img/modal/close-modal.svg" alt="X">
@@ -1665,13 +1665,13 @@
   
                   <div class="modal__inputs-item">
                     <span class="modal__inputs-item-cap-left"></span>
-                    <input type="text" class="modal__inputs-item-input" placeholder="Имя и фамилия" name="name" maxlength="50" required>
+                    <input type="text" class="modal__inputs-item-input" placeholder="Имя" name="name" data-required="true" data-reg="^[а-яёА-ЯЁa-zA-Z\s]*$" maxlength="50">
                     <span class="modal__inputs-item-cap-right"></span>
                   </div>
   
                   <div class="modal__inputs-item">
                     <span class="modal__inputs-item-cap-left"></span>
-                    <input type="tel" class="modal__inputs-item-input" placeholder="Телефон" name="phone" required>
+                    <input type="tel" class="modal__inputs-item-input" placeholder="Телефон" name="phone" pattern="2-[0-9]{3}-[0-9]{3}" data-required="true" data-reg="^((\+7|7|8)+([0-9]){10})$">
                     <span class="modal__inputs-item-cap-right"></span>
                   </div>
                 </div>
@@ -1733,13 +1733,14 @@
       </main>
     </div>
 
-    <script src="./js/libs/customTab/customTab.js"></script>
-    <script src="./js/libs/itcSlider/itcSlider.js"></script>
-    <script src="./js/libs/noUiSlider/nouislider.min.js"></script>
-    <script src="./js/libs/input-number/input-number.js"></script>
-    <script src="./js/libs/summary/summaryForm.js"></script>
-    <script src="./js/libs/modal/modal.js"></script>
-    <script src="./js/libs/accordeon/accordeon.js"></script>
-    <script src="./js/main.js"></script>
+    <script defer src="./js/libs/customTab/customTab.js"></script>
+    <script defer src="./js/libs/itcSlider/itcSlider.js"></script>
+    <script defer src="./js/libs/noUiSlider/nouislider.min.js"></script>
+    <script defer src="./js/libs/input-number/input-number.js"></script>
+    <script defer src="./js/libs/summary/summaryForm.js"></script>
+    <script defer src="./js/libs/modal/modal.js"></script>
+    <script defer src="./js/libs/accordeon/accordeon.js"></script>
+    <script defer src="./js/libs/modal/validation.js"></script>
+    <script defer src="./js/main.js"></script>
   </body>
 </html>
