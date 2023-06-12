@@ -12,7 +12,7 @@ const tab1 = new CustomTab(
 // Инициализация itcSlider
 const itcSlider = ItcSlider.getOrCreateInstance('.itc-slider', {
   loop: false,
-  refresh: true
+  refresh: true,
 })
 
 // Выключаем itcSlider на мобилльном разрешщении
@@ -22,7 +22,7 @@ new ResizeObserver(() => {
   } else {
     ItcSlider.getOrCreateInstance('.itc-slider', {
       loop: false,
-      refresh: true
+      refresh: true,
     })
   }
 }).observe(document.body)
@@ -31,8 +31,12 @@ new ResizeObserver(() => {
 const inputsNum = new InputNumber('.team-inputs')
 
 // Инициализация duration-input
-var slider = document.getElementById('month-slider')
-const rangeValue = document.querySelector('.range-date')
+const section = document.querySelector('.calc-price')
+const summary = section.querySelector('.calc-price__summary-column')
+const rangeSummary = summary.querySelector('.range-grid')
+const rangeInput = section.querySelector('.range-input')
+const slider = section.querySelector('#month-slider')
+
 
 noUiSlider.create(slider, {
   start: [1],
@@ -41,6 +45,9 @@ noUiSlider.create(slider, {
   tooltips: [true],
   format: {
     to: function (value) {
+      RangeSummary(value)
+      const rangeValue = rangeSummary.querySelector('.range-date')
+      console.log(value)
       rangeValue.textContent = Math.floor(value) + ' мес.'
       return Math.floor(value) + ' мес.'
     },
@@ -60,22 +67,62 @@ noUiSlider.create(slider, {
   },
 })
 
-const formData = summaryColumn()
+function durationConclusion() {
+  rangeSummary.addEventListener('click', (event) => {
+    remove(event)
+  })
 
-// Добавляем свойство duration из слайдера в Объект формы
-const rangeInput = document.querySelector('.range-input')
-rangeInput.addEventListener(
-  'mouseup',
-  () => (formData.duration = slider.noUiSlider.get().replace(/\D/g, ''))
-)
+  function remove(event) {
+    if (event.target.hasAttribute(`data-service-close`)) {
+      slider.noUiSlider.set(0)
+      event.target.parentElement.remove()
+      formData.service = ''
+    }
+    if (rangeSummary.querySelectorAll('.select-list__item').length == 0) {
+      rangeSummary.classList.add('hidden')
+    }
+  }
+
+  rangeInput.addEventListener('mouseup', () => {
+    // Добавляем свойство duration из слайдера в formData
+    formData.duration = slider.noUiSlider.get().replace(/\D/g, '')
+  })
+}
+
+function RangeSummary(value) {
+  if(value == 0) {
+    console.log(0)
+    rangeSummary.classList.add('hidden')
+    rangeSummary.children[0].remove()
+  } else {
+    rangeSummary.classList.remove('hidden')
+  }
+
+  if(!rangeSummary.classList.contains('hidden') || !rangeSummary.children) {
+    return
+  }
+
+  const listItem = document.createElement('div')
+  listItem.classList.add('select-list__item')
+  listItem.innerHTML = `
+  Длительность<span class="range-date">${Math.floor(value)} мес.</span>
+  <img src="./img/calc-price/close.svg" data-service-close alt="X">
+  `
+  rangeSummary.appendChild(listItem)
+}
+
+durationConclusion()
+
+
+const formData = summaryColumn()
 
 /* Burger Menu */
 const burgerBtn = document.querySelector('.burger-menu-btn')
 const burgerMenu = document.querySelector('.burger-menu')
 
 burgerBtn.addEventListener('click', (event) => {
-    burgerBtn.classList.toggle('burger-menu-btn--opened')
-    burgerMenu.classList.toggle('burger-menu--opened')
+  burgerBtn.classList.toggle('burger-menu-btn--opened')
+  burgerMenu.classList.toggle('burger-menu--opened')
 })
 
 burgerMenu.addEventListener('click', (event) => {
@@ -90,25 +137,25 @@ burgerMenu.addEventListener('click', (event) => {
 })
 
 /* GO-TOP */
-const goTopBtn = document.querySelector(".go-top");
+const goTopBtn = document.querySelector('.go-top')
 
 // обработчик на скролл окна
-window.addEventListener("scroll", trackScroll);
+window.addEventListener('scroll', trackScroll)
 // обработчик на нажатии
-goTopBtn.addEventListener("click", goTop);
+goTopBtn.addEventListener('click', goTop)
 
 function trackScroll() {
   // вычисляем положение от верхушки страницы
-  const scrolled = window.pageYOffset;
+  const scrolled = window.pageYOffset
   // считаем высоту окна браузера
-  const coords = document.documentElement.clientHeight;
+  const coords = document.documentElement.clientHeight
   // если вышли за пределы первого окна
   if (scrolled > coords) {
     // кнопка появляется
-    goTopBtn.classList.add("go-top--show");
+    goTopBtn.classList.add('go-top--show')
   } else {
     // иначе исчезает
-    goTopBtn.classList.remove("go-top--show");
+    goTopBtn.classList.remove('go-top--show')
   }
 }
 
@@ -118,7 +165,7 @@ function goTop() {
     // скроллим наверх
     window.scroll({
       top: 0,
-      behavior: "smooth",
-    });
+      behavior: 'smooth',
+    })
   }
 }

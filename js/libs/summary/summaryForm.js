@@ -6,7 +6,6 @@ function summaryColumn() {
     duration: '',
   }
 
-  const form = document.forms.pageForm
   const section = document.querySelector('.calc-price')
   const summary = section.querySelector('.calc-price__summary-column')
 
@@ -66,7 +65,7 @@ function summaryColumn() {
         const id = parseInt(
           event.target.parentElement.getAttribute('data-service-id')
         )
-        form.radioService[id].checked = false
+        serviceInputs[id].querySelector('[name="radioService"]').checked = false
         event.target.parentElement.remove()
         formData.service = ''
       }
