@@ -1,6 +1,68 @@
 const allForms = document.querySelectorAll('[name="pageForm"]')
 
+let formValidationResult
+
 allForms.forEach((form) => {
+  form.addEventListener('submit', (event) => {
+    event.preventDefault()
+  })
+
+  form.querySelector('[type="submit"]').addEventListener('click', () => {
+    formValidationResult = true
+    Array.from(form).forEach((input) => {
+      
+      if (input.dataset.required && input.value == '' || input.value == '+7') {
+        formValidationResult = false
+        if (!input.parentNode.classList.contains('error')) {
+          createError(input, 'Поле не заполнено')
+        }
+      }
+      
+      if(input.type == 'checkbox') {
+        input.nextElementSibling.classList.remove('error')
+        if(input.checked == false) {
+          input.nextElementSibling.classList.add('error')
+          formValidationResult = false
+        }
+      }  
+    })
+
+    /*SUBMIT ФОРМЫ (Если прошла валидацию)*/
+    if (formValidationResult == true) {
+      const messageBox = document.createElement('div')
+      messageBox.classList.add('modal-accept')
+      messageBox.innerHTML = `
+        <div class="modal-accept-box">
+          <div class="modal-accept__title">Ваше сообщение отправлено!</div>
+          <div class="modal-accept__message">Большое спасибо за проявленный интерес.  Ожидайте наших новостей.</div>
+          <div class="modal-accept__btn-w"><button class="button modal-accept__btn">Хорошо</button></div>
+        </div>
+        `
+
+      form.append(messageBox)
+
+      form.querySelector('.modal-accept').addEventListener('click', () => {
+        messageBox.remove()
+      })
+
+      form
+        .querySelector('.modal-accept-box')
+        .addEventListener('click', (event) => {
+          event.stopPropagation()
+        })
+
+      form.querySelector('.modal-accept__btn').addEventListener('click', () => {
+        messageBox.remove()
+      })
+
+      Array.from(form).forEach((input) => {
+        input.value = ''
+      })
+
+      formValidationResult = false
+    }
+  })
+
   Array.from(form).forEach((input) => {
     input.addEventListener('blur', (event) => {
       validation(event.target)
@@ -9,53 +71,46 @@ allForms.forEach((form) => {
     input.addEventListener('input', (event) => {
       validation(event.target)
     })
-
-    if (input.classList.contains('modal__submit-btn')) {
-      input.addEventListener('click', () => {
-        validation()
-      })
-    }
   })
 })
 
-function validation(input=this) {
+function validation(input) {
   removeError(input)
 
-  let result = true
   if (input.hasAttribute('data-required')) {
     if (input.value == '' || input.value == '+7') {
       createError(input, 'Поле не заполнено')
-      result = false
+      formValidationResult = false
     }
   }
 
   if (input.dataset.reg) {
     const reg = new RegExp(input.dataset.reg)
-    console.log(input.type, input.value)
 
     if (input.type == 'text') {
       if (!reg.test(input.value)) {
         createError(input, 'В этом поле допустимы только буквы')
+        formValidationResult = false
       }
     }
+
     if (input.type == 'email') {
       if (!reg.test(input.value)) {
         createError(input, 'прим.: example@mail.com')
+        formValidationResult = false
       }
     }
 
- 
-    if(input.type == 'tel') {
-      console.log(input.value)
+    if (input.type == 'tel') {
       const number = input.value
       if (!reg.test(number.replace(/\D/g, ''))) {
         createError(input, 'прим.: +7 (999) 123 45 67')
+        formValidationResult = false
       }
     }
-    result = false
   }
 
-  return result
+  return formValidationResult
 }
 
 function createError(input, text) {
@@ -75,63 +130,7 @@ function removeError(input) {
   }
 }
 
-// allForms.forEach((form) => {
-//   form.addEventListener('input', (event) => {
-//     event.preventDefault()
-//     if (validation(form)) {
-//       console.log('Валидно')
-//     }
-//   })
-// })
-// removeError(input)
-// function createError(input, text) {
-//   const parent = input.parentNode
-//   const errorLabel = document.createElement('label')
-//   errorLabel.classList.add('error-label')
-//   errorLabel.textContent = text
-//   parent.classList.add('error')
-//   parent.append(errorLabel)
-// }
-
-// function validation(form) {
-//   function removeError(input) {
-//     const parent = input.parentNode
-//     if (parent.classList.contains('error')) {
-//       parent.querySelector('.error-label').remove()
-//       parent.classList.remove('error')
-//     }
-//   }
-
-//   let result = true
-
-//   form.querySelectorAll('input').forEach((input) => {
-//     removeError(input)
-
-//     if (input.dataset.required == 'true') {
-//       if (input.value == '') {
-//         createError(input, 'Поле не заполнено')
-//         result = false
-//       }
-//     }
-
-//     if (input.dataset.reg) {
-//       const reg = new RegExp(input.dataset.reg)
-//       console.log(reg.test(input.value))
-//       if (!reg.test(input.value)) {
-//         if (input.type == 'text') {
-//           createError(input, 'В этом поле допустимы только буквы')
-//         }
-//         if (input.type == 'email') {
-//           createError(input, 'Некорректный email (прим.: example@mail.com)')
-//         }
-//         result = false
-//       }
-//     }
-//   })
-
-//   return result
-// }
-
+// Маска телефона для input
 window.addEventListener('DOMContentLoaded', function () {
   ;[].forEach.call(document.querySelectorAll('[type="tel"]'), function (input) {
     var keyCode

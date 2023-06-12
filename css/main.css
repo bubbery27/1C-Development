@@ -4436,7 +4436,7 @@ p {
   display: flex;
   flex-direction: column;
   flex-basis: 836px;
-  padding: 48px 56px 80px;
+  padding: 48px 44px 80px 56px;
 }
 @media (max-width: 1919px) {
   .modal__left-column {
@@ -4735,6 +4735,9 @@ p {
   border-radius: 3px;
   margin-right: 19px;
   border: 2px solid rgba(0, 0, 0, 0.6);
+}
+.policy-checkbox__custom.error {
+  border: 2px solid rgba(255, 0, 0, 0.6);
 }
 .policy-checkbox__custom::before {
   content: "";
@@ -5119,4 +5122,104 @@ p {
 .modal__trusted-parthners-item img:hover {
   filter: saturate(100%);
   opacity: 1;
+}
+
+.modal-accept {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  padding: 0 160px;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1500;
+  transition: opacity 0.1s ease-in;
+  overflow-y: auto;
+}
+.modal-accept.modal-accept-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+@media (max-width: 1919px) {
+  .modal-accept {
+    padding: 0 56px;
+  }
+}
+@media (max-width: 1439px) {
+  .modal-accept {
+    padding: 40px;
+  }
+}
+@media (max-width: 991px) {
+  .modal-accept {
+    display: block;
+  }
+}
+@media (max-width: 991px) {
+  .modal-accept {
+    padding: 100px 25px;
+  }
+}
+
+.modal-accept-box {
+  display: flex;
+  flex-direction: column;
+  row-gap: 19px;
+  width: 560px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 40px;
+  padding: 24px;
+}
+@media (max-width: 991px) {
+  .modal-accept-box {
+    border-radius: 25px;
+    width: auto;
+  }
+}
+
+.modal-accept__title {
+  font-size: 16px;
+  font-weight: 700;
+}
+@media (max-width: 574px) {
+  .modal-accept__title {
+    text-align: center;
+  }
+}
+
+.modal-accept__message {
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+@media (max-width: 574px) {
+  .modal-accept__message {
+    text-align: center;
+  }
+}
+
+.modal-accept__btn-w {
+  display: grid;
+  grid-template-columns: 100px;
+  justify-content: end;
+}
+@media (max-width: 574px) {
+  .modal-accept__btn-w {
+    justify-content: center;
+    grid-template-columns: 140px;
+  }
+}
+
+.modal-accept__btn {
+  height: 40px;
+  border-radius: 20px;
+}
+@media (max-width: 991px) {
+  .modal-accept__btn {
+    font-size: 14px;
+  }
 }/*# sourceMappingURL=main.css.map */
