@@ -3218,9 +3218,20 @@ p {
 }
 
 .input-title {
+  position: relative;
   font-weight: 700;
   font-size: 18px;
   margin-bottom: 24px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.input-title.error::after {
+  content: "*";
+  position: absolute;
+  top: -9px;
+  right: -17px;
+  font-size: 26px;
+  color: red;
 }
 @media (max-width: 1919px) {
   .input-title {
@@ -3723,10 +3734,22 @@ p {
 }
 
 .calc-price__summary-btn {
+  position: relative;
   display: grid;
   width: 100%;
   grid-template-columns: minmax(290px, 535px);
   justify-content: center;
+}
+
+.calc-price__summary-column-error {
+  position: absolute;
+  top: -35px;
+  left: 0;
+  color: red;
+  font-size: 16px;
+}
+.calc-price__summary-column-error span {
+  font-size: 20px;
 }
 
 .calc-price-btn {
@@ -4107,6 +4130,21 @@ p {
   padding-top: 80px;
   background-color: #0E1423;
   color: white;
+}
+@media (max-width: 1919px) {
+  .footer {
+    padding-top: 64px;
+  }
+}
+@media (max-width: 1439px) {
+  .footer {
+    padding-top: 56px;
+  }
+}
+@media (max-width: 991px) {
+  .footer {
+    padding-top: 32px;
+  }
 }
 
 .logo {

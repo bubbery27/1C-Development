@@ -4,6 +4,9 @@ const focusClass = 'modal-input--focus'
 const titleFocusClass = 'title-input--focus'
 
 modalBtns.forEach((button) => {
+  if(button.dataset.modalButton == 'calc-price') {
+    return
+  }
   button.addEventListener('click', () => {
     const currentModal = document.querySelector(
       `[data-modal=${button.dataset.modalButton}]`

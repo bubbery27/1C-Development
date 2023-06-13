@@ -1113,7 +1113,7 @@
               <div class="calc-price__text">Для наилучшей обработки вашего запроса, пожалуйста, выберите необходимые параметры.</div>
               <div class="inputs-w">
                
-                <div class="service-inputs">
+                <div class="service-inputs" data-name="services">
     
                   <div class="input-title">
                     1. Выберете услугу
@@ -1147,7 +1147,7 @@
                   </div>
                 </div>
     
-                <div class="team-inputs">
+                <div class="team-inputs" data-name="team">
                   <div class="input-title">
                     2. Команда
                   </div>
@@ -1209,7 +1209,7 @@
                   </div>
                 </div>
     
-                <div class="products-inputs">
+                <div class="products-inputs" data-name="products">
                   <div class="input-title">
                     3. Продукты в системе 1С:Предприятие
                   </div>
@@ -1288,7 +1288,7 @@
     
                 </div>
     
-                <div class="duration-input">
+                <div class="duration-input" data-name="range">
                   <div class="input-title">
                     4. Длительность проекта
                   </div>
@@ -1314,14 +1314,14 @@
     
                 <div class="select-list">
                   
-                  <div class="services-grid">
+                  <div class="services-grid" data-name="services">
                     <!-- <div class="select-list__item">
                       Аутстаффинг 1С специалистов 
                       <img src="./img/calc-price/close.svg" alt="X">
                     </div> -->
                   </div>
     
-                  <div class="team-grid">
+                  <div class="team-grid" data-name="team">
                     <!-- <div class="select-list__item">
                       5 Архитекторов 1С
                       <img src="./img/calc-price/close.svg" alt="X">
@@ -1332,7 +1332,7 @@
                     </div> -->
                   </div>
     
-                  <div class="products-grid">
+                  <div class="products-grid" data-name="products">
                     <!-- <div class="select-list__item">
                       Управление нашей фирмой 
                       <img src="./img/calc-price/close.svg" alt="X">
@@ -1343,7 +1343,7 @@
                     </div> -->
                   </div>
 
-                  <div class="range-grid">
+                  <div class="range-grid" data-name="range">
                     <div class="select-list__item">
                       Длительность<span class="range-date">3 мес.</span>
                       <img src="./img/calc-price/close.svg" alt="X" data-service-close>
@@ -1744,9 +1744,10 @@
 
     <script defer src="./js/libs/customTab/customTab.js"></script>
     <script defer src="./js/libs/itcSlider/itcSlider.js"></script>
-    <script defer src="./js/libs/noUiSlider/nouislider.min.js"></script>
-    <script defer src="./js/libs/input-number/input-number.js"></script>
-    <script defer src="./js/libs/summary/summaryForm.js"></script>
+    <script defer src="./js/libs/calc-price/noUiSlider/nouislider.min.js"></script>
+    <script defer src="./js/libs/calc-price/input-number/input-number.js"></script>
+    <script defer src="./js/libs/calc-price/summary/summaryForm.js"></script>
+    <script defer src="./js/libs/calc-price/validation/validation.js"></script>
     <script defer src="./js/libs/modal/modal.js"></script>
     <script defer src="./js/libs/accordeon/accordeon.js"></script>
     <script defer src="./js/libs/modal/validation.js"></script>
