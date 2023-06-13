@@ -37,7 +37,7 @@ button.addEventListener('click', () => {
     }
     const errorLabel = document.createElement('label')
     errorLabel.classList.add('calc-price__summary-column-error')
-    errorLabel.innerHTML = 'Отметьте все поля помеченные <span>*</span>'
+    errorLabel.innerHTML = '<span>*</span> Отметьте все поля'
     button.parentNode.prepend(errorLabel)
   }
 })

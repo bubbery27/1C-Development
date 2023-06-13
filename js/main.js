@@ -18,7 +18,7 @@ const itcSlider = ItcSlider.getOrCreateInstance('.itc-slider', {
 // Выключаем itcSlider на мобилльном разрешщении
 new ResizeObserver(() => {
   if (window.matchMedia('screen and (max-width: 991px)').matches) {
-    itcSlider.dispose(slider)
+    itcSlider.dispose()
   } else {
     ItcSlider.getOrCreateInstance('.itc-slider', {
       loop: false,

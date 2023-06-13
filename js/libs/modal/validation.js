@@ -10,21 +10,23 @@ allForms.forEach((form) => {
   form.querySelector('[type="submit"]').addEventListener('click', () => {
     formValidationResult = true
     Array.from(form).forEach((input) => {
-      
-      if (input.dataset.required && input.value == '' || input.value == '+7') {
+      if (
+        (input.dataset.required && input.value == '') ||
+        input.value == '+7'
+      ) {
         formValidationResult = false
         if (!input.parentNode.classList.contains('error')) {
           createError(input, 'Поле не заполнено')
         }
       }
-      
-      if(input.type == 'checkbox') {
+
+      if (input.type == 'checkbox') {
         input.nextElementSibling.classList.remove('error')
-        if(input.checked == false) {
+        if (input.checked == false) {
           input.nextElementSibling.classList.add('error')
           formValidationResult = false
         }
-      }  
+      }
     })
 
     /*SUBMIT ФОРМЫ (Если прошла валидацию)*/
@@ -102,8 +104,19 @@ function validation(input) {
     }
 
     if (input.type == 'tel') {
+      if (input.value == '' || input.value == '+7') {
+        return
+      }
+
       const number = input.value
+
       if (!reg.test(number.replace(/\D/g, ''))) {
+        console.log(number.replace(/\D/g, ''))
+
+        if (number.replace(/\D/g, '').length >= 11) {
+          return
+        }
+        
         createError(input, 'прим.: +7 (999) 123 45 67')
         formValidationResult = false
       }

@@ -3239,6 +3239,11 @@ p {
     margin-bottom: 12px;
   }
 }
+@media (max-width: 374px) {
+  .input-title {
+    max-width: 200px;
+  }
+}
 
 .service-inputs__list {
   display: flex;
@@ -5194,9 +5199,10 @@ p {
 @media (max-width: 991px) {
   .modal-accept {
     display: block;
+    padding: 100px;
   }
 }
-@media (max-width: 991px) {
+@media (max-width: 574px) {
   .modal-accept {
     padding: 100px 25px;
   }
